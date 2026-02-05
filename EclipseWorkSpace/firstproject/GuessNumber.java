@@ -13,10 +13,12 @@ public class GuessNumber
 
 		// decleairs number as an int and inisailized to a random number multplyd RANDOM_MULTIPLIER 
 		int number = (int) (Math.random() * RANDOM_MULTIPLIER) + 1;
-
+			
+		// scanner is a non primitave data type 
+		// keyboardInput is being declaired as an object 
 		Scanner keyboardInput = new Scanner(System.in);
 		{
-		
+	
 		System.out.println("Guess a magic number between 0 and 100");
 
 		int guess = -1;
