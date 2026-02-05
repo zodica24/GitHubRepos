@@ -40,7 +40,7 @@ public class GuessNumber
 				System.out.println("Your guess is too low");
 			}
 		}
-
+		keyboardInput.close();
 	}//end of main
 	}
 }//end of class
