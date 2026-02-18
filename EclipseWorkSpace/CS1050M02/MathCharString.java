@@ -14,39 +14,65 @@ public class MathCharString {
 	 */
 	public static void main(String[] args) {
 		
-		Math.random();
+		
+		
+		
+		
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("what is your name \n");
+		System.out.print("what is your name: ");
 		
 		String name = input.next();
 		
-		System.out.print("what is your last initial \n");
+		System.out.print("Plese enter a noun: ");
+		 
+		String noun = input.next();
 		
-		char lastInitial = (char) input.next().charAt(0);
+		System.out.print("Plese enter a verb ending in ing: ");
 		
-		String hiName = "Hello " + name + " " + lastInitial + ".";
+		String verb = input.next();
 		
-		char charTest = 'a';
+		System.out.print("Plese enter a adjative: ");
 		
-		int charAsciiValue = (int) charTest;
+		String adjative = input.next();
 		
-		String firstName = name;
+		System.out.print("Plese enter a place: ");
 		
-		int stringLength = firstName.charAt(2);
+		String place =input.next();
 		
-		int firstInitial = firstName.length();
+		System.out.print("what is your last name ");
 		
-		char lastLetter = firstName.charAt(firstName.length() - 1);
+		char lastName = (char) input.next().charAt(0);
 		
-		System.out.print(lastLetter + "\n");
+		System.out.print("Plese enter yor favorit letter: ");
+		
+		char favLetter = (char)input.next().charAt(0);
+		
+		System.out.print("Once upon a time, " + name + ". " + lastName + " was " + verb +" through the " + place + 
+				" with a " + noun + " . It was a very " + adjative + " day. Their favorite letter was " + favLetter + ".” ");
+		
+		//String hiName = "Hello " + name + " " + lastName + ".";
+		
+		//char charTest = 'a';
+		
+		//int charAsciiValue = (int) charTest;
+		
+		//String firstName = name;
+		
+		//int stringLength = firstName.charAt(2);
+		
+		//int firstInitial = firstName.length();
+		
+		//char lastLetter = firstName.charAt(firstName.length() - 1);
+		
+		//System.out.print(lastLetter + "\n");
 		
 		
 		
-		System.out.print(hiName);
+		//System.out.print(hiName);
 		
-		
+		input.close();
 	}
 
 }

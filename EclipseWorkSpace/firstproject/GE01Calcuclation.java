@@ -1,10 +1,6 @@
-/**
- * 
- */
 
-/**
- * 
- */
+import java.util.Scanner;
+
 public class GE01Calcuclation {
 
 	/**
@@ -12,28 +8,49 @@ public class GE01Calcuclation {
 	 */
 	public static void main(String[] args) {
 		
+		Scanner grade = new Scanner(System.in);
+		
 		final double classPart = .15;
-		final double guided_Expo = .20;
+		final double guidedExpo = .20;
 		final double quizzes = .25;
 		final double projects = .20;
-		final double final_Demo = .20;
+		final double finalDemo = .20;
 		
-		int class_Part_Grade = 95;
-		int guided_Expo_Grade = 92;
-		int quizzes_Grade = 88;
-		int projects_Grade = 87;
-		int final_Demo_Grade = 93;
+		int classPartGrade = 95;
+		int guidedExpoGrade = 92;
+		int quizzesGrade = 88;
+		int projectsGrade = 87;
+		int finalDemoGrade = 93;
 		
 		
-		double class_Part_Grade_Fianl =  classPart * class_Part_Grade;
-		double guided_Expo_Grade_Fianl = guided_Expo * guided_Expo_Grade;
-		double quizzes_Grade_Final = quizzes_Grade * quizzes;
-		double projects_Grades_Final = projects * projects_Grade;
-		double final_Demo_Grade_Final = final_Demo_Grade * final_Demo;
+		double classPartGradeFianl =  classPart * classPartGrade;
+		double guidedExpoGradeFianl = guidedExpo * guidedExpoGrade;
+		double quizzesGradeFinal = quizzesGrade * quizzes;
+		double projectsGradesFinal = projects * projectsGrade;
+		double finalDemoGradeFinal = finalDemoGrade * finalDemo;
 		
-		double grade_Average = class_Part_Grade_Fianl + guided_Expo_Grade_Fianl + quizzes_Grade_Final + projects_Grades_Final + final_Demo_Grade_Final;
+		double gradeAverage = classPartGradeFianl + guidedExpoGradeFianl + quizzesGradeFinal + projectsGradesFinal + finalDemoGradeFinal;
 		
-		System.out.println(grade_Average);
+		if(gradeAverage >= 90) 
+		{
+			System.out.println(gradeAverage + "= A");
+		}
+		else if(gradeAverage >= 80) 
+		{
+			System.out.println(gradeAverage + "= B");
+		}
+		else if(gradeAverage >= 70) 
+		{
+			System.out.println(gradeAverage + "= C");
+		}
+		else if(gradeAverage >= 60) 
+		{
+			System.out.println(gradeAverage + "= D");
+		}
+		else
+		{
+			System.out.println(gradeAverage + "= F");
+		}
 
 	}
 
