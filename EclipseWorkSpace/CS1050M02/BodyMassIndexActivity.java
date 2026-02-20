@@ -46,6 +46,23 @@ public class BodyMassIndexActivity
 		// Display the user's BMI.
 		System.out.printf("Your body mass index (BMI) is %f", bmi);
 		
+		if (bmi < 18.5)
+		{
+			System.out.print("You are underweight.");
+		}
+		else if (bmi >= 18.5 && bmi < 25) 
+		{
+			System.out.print("You are normal.");
+		}
+		else if (bmi >= 25 && bmi < 30) 
+		{
+			System.out.print("You are overweight.");
+		}
+		else
+		{
+			System.out.print("you are obese");
+		}
+		
 		input.close();
 
 	}
