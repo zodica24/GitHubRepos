@@ -44,7 +44,7 @@ public class BodyMassIndexActivity
 		bmi = weight * bmiNumber / (height * height);
 
 		// Display the user's BMI.
-		System.out.printf("Your body mass index (BMI) is %f", bmi);
+		System.out.printf("Your body mass index (BMI) is %f", bmi + "n/");
 		
 		if (bmi < 18.5)
 		{

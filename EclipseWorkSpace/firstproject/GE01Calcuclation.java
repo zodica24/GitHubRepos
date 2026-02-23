@@ -16,7 +16,7 @@ public class GE01Calcuclation {
 		final double projects = .20;
 		final double finalDemo = .20;
 		
-		int classPartGrade = 95;
+		int classPartGrade = grade.nextInt();
 		int guidedExpoGrade = 92;
 		int quizzesGrade = 88;
 		int projectsGrade = 87;
@@ -33,23 +33,23 @@ public class GE01Calcuclation {
 		
 		if(gradeAverage >= 90) 
 		{
-			System.out.println(gradeAverage + "= A");
+			System.out.println(gradeAverage + " = A");
 		}
 		else if(gradeAverage >= 80) 
 		{
-			System.out.println(gradeAverage + "= B");
+			System.out.println(gradeAverage + " = B");
 		}
 		else if(gradeAverage >= 70) 
 		{
-			System.out.println(gradeAverage + "= C");
+			System.out.println(gradeAverage + " = C");
 		}
 		else if(gradeAverage >= 60) 
 		{
-			System.out.println(gradeAverage + "= D");
+			System.out.println(gradeAverage + " = D");
 		}
 		else
 		{
-			System.out.println(gradeAverage + "= F");
+			System.out.println(gradeAverage + " = F");
 		}
 
 	}
