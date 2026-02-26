@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+//this is how you add the scanner class to your program
 import java.util.Scanner;
 
 
@@ -19,10 +19,13 @@ public class TicketPriceFinder {
 		
 		System.out.print("plese enter what section you would like to sit in: F-(Front), C-(Center), S-(Side), U-(Upper).\n");
 		
+		//used to convert and grab the first letter of the inputed string and change it to uppercase and cast it as a char
 		sectionNumber = (char) Character.toUpperCase(input.next().charAt(0));
 		
+		// used a if - else statment to check if the input is one of the letters i want 
 		if (sectionNumber == 'F' || sectionNumber == 'C' || sectionNumber == 'S' ||sectionNumber == 'U' )
 		{
+			// useing a swicth statment to filter for wicth letter was entered
 			switch(sectionNumber)
 			{
 				case 'F':
@@ -45,11 +48,13 @@ public class TicketPriceFinder {
 			System.out.print("please enter you disired row: 1-60.\n");
 			rowNumber = input.nextInt();
 			
+			//used a nested multi way if statment to test for the row that was entered
 			if (rowNumber >= 1 && rowNumber <= 15)
 			{
 				seatPrice = 450;
 				System.out.print("Section " + sectionNumber + " row " + rowNumber + " costs $" + seatPrice + ".");
 			}
+			// used a logical opp to only run this else-if if bouth casses are true
 			else if (rowNumber >= 16 && rowNumber <= 30)
 			{
 				seatPrice = 300;
@@ -65,7 +70,7 @@ public class TicketPriceFinder {
 				System.out.print("Error: Row entered dos not exist: exiting program.");
 			}
 		}
-			else	
+		else	
 			{
 				System.out.print("Error: Section choice entered is InValid; closing program.");
 			}
