@@ -27,6 +27,9 @@ public class SumCalucator {
 		sum = calculateSum(max,sum);
 		
 		System.out.print(sum);
+		
+		input.close();
+		
 	//end of main	
 	}
 
