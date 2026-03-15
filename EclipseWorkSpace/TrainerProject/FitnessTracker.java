@@ -15,14 +15,20 @@ public class FitnessTracker {
 		// TODO Auto-generated method stub
 		
 		Scanner input = new Scanner(System.in);
-		//System.out.print(calulateBMI(input));
+		boolean track = askToContinue(input);
+		do
+		{
+			printSummery(input);
+			track = askToContinue(input);
+		}
+		while(track);
 		
-		printSummery(input);
 	}
 
 	public static void printSummery(Scanner input)
 	{
-		System.out.println("your athleates Bmi is" + calulateBMI(input) + " and" + getBMICategory(calulateBMI(input)));
+		double bmi = calulateBMI(input);
+		System.out.println("your athleates Bmi is " + bmi + " and " + getBMICategory(bmi));
 	}
 	
 	public static double getPositiveDouble(Scanner input, String questionPrompt)
@@ -33,13 +39,11 @@ public class FitnessTracker {
 			System.out.println(questionPrompt);
 			number = input.nextDouble();
 			if(number > 0)
-			{
-				System.out.println("Number is valid"); 
+			{ 
 				track = false;
 			}
 			else
-			{
-				System.out.println("Number is invalid"); 
+			{ 
 				track = true;
 			}
 		}
@@ -100,7 +104,7 @@ public class FitnessTracker {
 		do	
 		{
 			System.out.println("would you like to enter anuther athleate: enter Y/N.");
-			chosse = input.next().charAt(0);
+			chosse = Character.toUpperCase(input.next().charAt(0));
 			if (chosse == 'Y' || chosse == 'N')
 			{
 				if (chosse == 'Y')
