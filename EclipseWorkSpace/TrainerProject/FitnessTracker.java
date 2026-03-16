@@ -13,61 +13,74 @@ public class FitnessTracker {
 	public static void main(String[] args) 
 {
 		// TODO Auto-generated method stub
-		
+		double hight = 0;
+		double waight = 0;
+		double bmi = 0;
+		String category = "";
 		Scanner input = new Scanner(System.in);
 		boolean track = askToContinue(input);
 		do
 		{
-			printSummery(input);
+			
+			waight = getPositiveDouble(input,"Enter your weight, in pounds: ");
+					
+			hight = getPositiveDouble(input,"Enter your height, in inches: ");
+			
+			bmi = calulateBMI(hight,waight);
+			
+			category = getBMICategory(bmi);
+			
+			printSummery(bmi,category);
+			
 			track = askToContinue(input);
 		}
 		while(track);
 		
 	}
 
-	public static void printSummery(Scanner input)
+	public static void printSummery(double bmi, String bmiCat)
 	{
-		double bmi = calulateBMI(input);
-		System.out.println("your athleates Bmi is " + bmi + " and " + getBMICategory(bmi));
+		
+		System.out.println("your athleates Bmi is " + bmi + " and " + bmiCat);
 	}
 	
 	public static double getPositiveDouble(Scanner input, String questionPrompt)
 	{
 		double number = 0;
-		boolean track = true;
-		do {
+		boolean track = false;
+		while(!track) {
 			System.out.println(questionPrompt);
-			number = input.nextDouble();
-			if(number > 0)
-			{ 
-				track = false;
+			if (input.hasNextDouble())
+			{
+				number = input.nextDouble();
+				
+				if(number > 0)
+				{ 
+					track = true;
+				}
+				else
+				{ 
+					System.out.println("you didnt enter a postive number.");
+				}
 			}
-			else
-			{ 
-				track = true;
+			else 
+			{
+				System.out.println("input is not a intager");
+				input.nextLine();
 			}
 		}
-		while(track);
+		
 		
 		return number;
 	}
 	
-	public static double calulateBMI(Scanner input) 
+	public static double calulateBMI(double hight, double waight) 
 	{
 		double bmi = 0;
-		double height = 0;
-		double weight = 0;
 		final int bmiNumber = 703;
 		
-		System.out.println("Enter your weight, in pounds: ");
 				
-		weight = getPositiveDouble(input,"plese input a postive number");;
-				
-		System.out.println("Enter your height, in inches: ");
-				
-		height = getPositiveDouble(input,"plese input a postive number");;
-				
-		bmi = weight * bmiNumber / (height * height);
+		bmi = waight * bmiNumber / (hight * hight);
 		
 		return bmi;
 	}
