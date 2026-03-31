@@ -18,7 +18,8 @@ public class FitnessTracker {
 		double bmi = 0;
 		String category = "";
 		Scanner input = new Scanner(System.in);
-		boolean track = askToContinue(input);
+		boolean track;
+		//= askToContinue(input);
 		do
 		{
 			
@@ -49,6 +50,7 @@ public class FitnessTracker {
 		double number = 0;
 		boolean track = false;
 		while(!track) {
+			
 			System.out.println(questionPrompt);
 			if (input.hasNextDouble())
 			{
@@ -66,8 +68,9 @@ public class FitnessTracker {
 			else 
 			{
 				System.out.println("input is not a intager");
-				input.nextLine();
+				
 			}
+			input.nextLine();
 		}
 		
 		

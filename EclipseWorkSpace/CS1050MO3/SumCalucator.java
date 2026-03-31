@@ -24,7 +24,7 @@ public class SumCalucator {
 		System.out.print("plese enter a max number for you sum total.\n");
 		max = input.nextInt();
 		
-		sum = calculateSum(max,sum);
+		sum = calculateSum(max);
 		
 		System.out.print(sum);
 		
@@ -35,11 +35,12 @@ public class SumCalucator {
 
 	
 	
-	public static int calculateSum(int max,int sum)
+	public static int calculateSum(int max)
 	{
-		for (int i = 0; i <= max; i++) 
+		int sum = 1;
+		for (int i = 1; i <= max; i++) 
 		{
-			sum = sum + i;
+			sum = sum *i;
 			
 		}
 		return sum;
