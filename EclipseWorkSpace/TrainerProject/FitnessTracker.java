@@ -12,37 +12,57 @@ public class FitnessTracker {
 
 	public static void main(String[] args) 
 {
-		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int hold = getPositiveInt(input,"plese enter number of alathleates: ");
+		double [] bmi = new double[hold];
+		String [] names = new String[hold];
+		int [] heartRates = new int[hold];
+		
+		getInfo(bmi,names,heartRates,input);
+		printSummery(bmi, names, heartRates);
+			 
+}
+	public static int getMaxHeartRate(int age) {
+		int heartRates = 220 - age;
+		
+		return heartRates;
+	}
+	
+	public static void getInfo(double [] bmi, String [] names, int [] heartRates, Scanner input) {
+		
 		double hight = 0;
 		double waight = 0;
-		double bmi = 0;
-		String category = "";
-		Scanner input = new Scanner(System.in);
-		boolean track;
-		//= askToContinue(input);
-		do
-		{
-			
-			waight = getPositiveDouble(input,"Enter your weight, in pounds: ");
-					
-			hight = getPositiveDouble(input,"Enter your height, in inches: ");
-			
-			bmi = calulateBMI(hight,waight);
-			
-			category = getBMICategory(bmi);
-			
-			printSummery(bmi,category);
-			
-			track = askToContinue(input);
-		}
-		while(track);
+		int age = 0;
 		
+		int hold = getPositiveInt(input,"plese enter number of alathleates: ");
+		
+		names = new String[hold];
+		bmi = new double[hold];
+		heartRates = new int[hold];
+		
+		for(int i = 0; i < bmi.length; i++) {
+			System.out.println("enter athleates name: ");
+			names[i] = input.next();
+			hight = getPositiveDouble(input,"enter athleates hight:");
+			waight = getPositiveDouble(input,"enter athleates whight:");
+			bmi[i] = calulateBMI(hight,waight);
+			age = getPositiveInt(input,"enter athleates age: ");
+			heartRates[i] = getMaxHeartRate(age);
+		}
+		
+		return;
 	}
 
-	public static void printSummery(double bmi, String bmiCat)
+	public static void printSummery(double [] bmi, String [] names, int [] heartRate)
 	{
 		
-		System.out.println("your athleates Bmi is " + bmi + " and " + bmiCat);
+		System.out.println("============Athleate Summry=========");
+		for (int i = 0; i < names.length; i++) {
+				System.out.println(names[i]);
+				System.out.println("BMI: " + bmi[i]);
+				System.out.println("Catgory: " + getBMICategory(bmi[i]));
+				System.out.println("Heart rate: " + heartRate[i]);
+		}
 	}
 	
 	public static double getPositiveDouble(Scanner input, String questionPrompt)
@@ -77,6 +97,38 @@ public class FitnessTracker {
 		return number;
 	}
 	
+	public static int getPositiveInt(Scanner input, String questionPrompt)
+	{
+		int number = 0;
+		boolean track = false;
+		while(!track) {
+			
+			System.out.println(questionPrompt);
+			if (input.hasNextInt())
+			{
+				number = input.nextInt();
+				
+				if(number > 0)
+				{ 
+					track = true;
+				}
+				else
+				{ 
+					System.out.println("enter a postive number.");
+				}
+			}
+			else 
+			{
+				System.out.println("input is not a intager");
+				
+			}
+			input.nextLine();
+		}
+		
+		
+		return number;
+	}
+	
 	public static double calulateBMI(double hight, double waight) 
 	{
 		double bmi = 0;
@@ -94,19 +146,19 @@ public class FitnessTracker {
 		
 		if (bmi < 18.5)
 		{
-			category = "you are underwaight.";
+			category = "underwaight.";
 		}
 		else if (bmi >= 18.5 && bmi < 25) 
 		{
-			category = "your waight is normal.";
+			category = "normal.";
 		}
 		else if (bmi >= 25 && bmi < 30) 
 		{
-			category = "you are overwaight.";
+			category = "overwaight.";
 		}
 		else
 		{
-			category = "you are obese.";
+			category = "obese.";
 		}
 		
 		return category;
@@ -143,5 +195,5 @@ public class FitnessTracker {
 		
 		return answer;
 	}
-}
 
+}
