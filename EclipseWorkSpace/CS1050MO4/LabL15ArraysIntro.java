@@ -37,7 +37,7 @@ public class LabL15ArraysIntro {
 			names[i] = input.next();
 			System.out.println("what was the students final grade:");
 			grades[i] = input.nextDouble();
-					
+				
 		}
 		// end of names and grades
 	}
