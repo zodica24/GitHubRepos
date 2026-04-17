@@ -58,7 +58,7 @@ public class FitnessTracker {
 	
 	public static void getInfo(double [] bmi, String [] names, int [] heartRates, Scanner input) {
 		
-		double hight = 0;
+ 		double hight = 0;
 		double waight = 0;
 		int age = 0;
 		
