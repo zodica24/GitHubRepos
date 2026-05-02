@@ -45,7 +45,7 @@ class SimpleCircle
 	// fix the code below.
 	public SimpleCircle(double radius)
 	{
-		radius = radius;
+		this.radius = radius;
 		numberOfObjects++;
 	}
 
@@ -57,7 +57,7 @@ class SimpleCircle
 	// fix the code below.
 	public void setRadius(double radius)
 	{
-		radius = radius;
+		this.radius = radius;
 	}
 
 	public double getArea()
