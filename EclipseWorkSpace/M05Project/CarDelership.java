@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class CarDelership {
 
@@ -103,14 +104,13 @@ class Dealership{
 	
 	private String delershipName = "";
 	private Car [] cars;
-	private int maxNumOfCars = 0;
+	private int currentNumOfCars = 0;
 	
 	
 	public Dealership (String delershipName, int maxNumOfCars ) {
 		
 		this.delershipName = delershipName;
-		this.maxNumOfCars = maxNumOfCars;
-		cars = new Car[this.maxNumOfCars];
+		cars = new Car[maxNumOfCars];
 	}
 	
 	public String getDealershipName() {
@@ -118,15 +118,10 @@ class Dealership{
 	}
 	
 	public void addCar(Car newCar) {
-		for(int carNumber = 0; carNumber < cars.length; carNumber++) {
-			
-			if (cars[carNumber] == null) {
-				
-				cars[carNumber] = newCar;
-				carNumber = cars.length;
-			}
-		}
 		
+		cars[currentNumOfCars] = newCar;
+		
+		currentNumOfCars++;
 	}
 	
 	public Car displayMostExpensiveCar() {
@@ -152,11 +147,18 @@ class Dealership{
 		
 	}
 	
-	public void writeCarsToFile(String fileName) {
+	public void writeCarsToFile(String fileName) throws FileNotFoundException {
 		
+		File outputFile = new File(fileName);
 		
+		PrintWriter invtoryWriter = new PrintWriter(outputFile);
 		
+		for(int carNumber = 1; carNumber < cars.length; carNumber++) {
+			
+		invtoryWriter.println(cars[carNumber].getMakeOfCar()+ " " + cars[carNumber].getModelOfCar()+ ": " + cars[carNumber].getPriceOfCar());
 		
+		}
+		invtoryWriter.close();
 	}
 	
 	
