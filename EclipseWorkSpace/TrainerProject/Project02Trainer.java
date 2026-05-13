@@ -1,5 +1,8 @@
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /*
  * 
@@ -12,8 +15,9 @@ public class Project02Trainer
 		displayProgramSummary();
 
 		// ===== TEST 1 =====
+		
 		String fileName = "team1.txt";
-
+		/*
 		try
 		{
 			System.out.println("\nTesting file: " + fileName);
@@ -27,7 +31,7 @@ public class Project02Trainer
 		} catch (FileNotFoundException exception)
 		{
 			System.out.println("Error: Unable to find file " + fileName);
-		}
+		} */
 
 		// ===== TEST 2 =====
 		fileName = "team2.txt";
@@ -36,7 +40,7 @@ public class Project02Trainer
 		{
 			System.out.println("\nTesting file: " + fileName);
 
-			Team team = new Team("Team CS", 4);
+			Team team = new Team("Team CS", 5);
 
 			teamSetUp(fileName, team);
 
@@ -52,7 +56,18 @@ public class Project02Trainer
 
 	public static void teamSetUp(String fileName, Team team) throws FileNotFoundException
 	{
-		// fill in reading information from a file
+		File inputFile = new File(fileName);
+		Scanner fileScanner = new Scanner(inputFile);
+		while (fileScanner.hasNext())
+		{
+			String name = fileScanner.next();
+			double height = fileScanner.nextDouble();
+			double weight =fileScanner.nextDouble();
+			int age  = fileScanner.nextInt();
+			Athlete athlete = new Athlete(name,height,weight,age);
+			team.addAthlete(athlete);
+		}
+		fileScanner.close();
 	}
 
 	public static void runAnalysis(Team team) throws FileNotFoundException
@@ -121,6 +136,7 @@ class Team{
 	public void addAthlete(Athlete athlete) {
 		
 		this.athlete[athleteCount] = athlete;
+		athleteCount++;
 		
 	}
 
@@ -198,20 +214,26 @@ class Team{
 				tracker1 = i;
 			}
 			if(athlete[i].getHeigth() < athlete[tracker2].getHeigth()) {
-				
+				tracker2 = i;
 			}
 		}
-		System.out.println("Smallest athlete: /n" + athlete[tracker1].getName() + " - " + athlete[tracker1].getHeigth());
-		System.out.println("Largest athlete: /n" + athlete[tracker2].getName() + " - " + athlete[tracker2].getHeigth());
+		System.out.println("Smallest athlete: \n" + athlete[tracker2].getName() + " - " + athlete[tracker2].getHeigth());
+		System.out.println("Largest athlete: \n" + athlete[tracker1].getName() + " - " + athlete[tracker1].getHeigth());
 	}
 		
+	public void writeAthletesToFile(String fileName) throws FileNotFoundException {
 		
+		File teamFile = new File(fileName);
 		
+		PrintWriter teamWriter = new PrintWriter(teamFile);
 		
-		
-		
-		
-		
+		for(int curentTeam = 0; curentTeam < athleteCount; curentTeam++) {
+			
+			teamWriter.println(athlete[curentTeam].getName() + "\n BMI: " + athlete[curentTeam].calculateBMI() + "\n Category: " + athlete[curentTeam].determinBMICategory() + "\n MHR:" + athlete[curentTeam].calculateMaxHeartRate());
+		}
+			
+		teamWriter.close();
+	}
 }
 
 class Athlete{

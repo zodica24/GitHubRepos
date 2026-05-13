@@ -1,0 +1,20 @@
+Deb
+ BMI: 42.90771484375
+ Category: obese.
+ MHR:161
+Monty
+ BMI: 17.49688888888889
+ Category: underwaight.
+ MHR:200
+Bintu
+ BMI: 30.12857142857143
+ Category: obese.
+ MHR:185
+Muffin
+ BMI: 21.69753086419753
+ Category: normal.
+ MHR:195
+Sparky
+ BMI: 45.6098615916955
+ Category: obese.
+ MHR:180
