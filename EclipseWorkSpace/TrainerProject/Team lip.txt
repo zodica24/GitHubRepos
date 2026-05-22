@@ -1,0 +1,8 @@
+lip
+ BMI: 21.69753086419753
+ Category: normal.
+ MHR:196
+jo
+ BMI: 17.49688888888889
+ Category: underwaight.
+ MHR:200

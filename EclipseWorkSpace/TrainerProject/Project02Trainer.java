@@ -34,13 +34,13 @@ public class Project02Trainer
 		} */
 
 		// ===== TEST 2 =====
-		fileName = "team2.txt";
+		fileName = "testTeam.txt";
 
 		try
 		{
 			System.out.println("\nTesting file: " + fileName);
 
-			Team team = new Team("Team CS", 5);
+			Team team = new Team("Team lip", 2);
 
 			teamSetUp(fileName, team);
 
