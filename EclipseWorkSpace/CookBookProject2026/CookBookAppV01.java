@@ -21,6 +21,10 @@ public class CookBookAppV01 {
 		
 		
 		//make method to add user input to a 2d arrayList
+		
+		
+		
+		
 	}	
 	
 }
@@ -42,19 +46,65 @@ class CookBook {
 class Recpie {
 	
 	private String [] ingredents;
-	private double [] ingredentAmount;
-	private String directions = "";
+	private String directions;
 	
-	public Recpie(ArrayList<ArrayList<String>> ingdrentList) {
+	public Recpie(String ingdrentList) {
 		
 		// make a for loop to pull info from 2d arrayList 
 		
-		for (int i = 0; i <= )
 		
 	}
 	
 	
 	
 }
+
+class ingerdents{
+	
+	private String ingdrentName; 
+	private int ingdrentAmount;
+	private String ingdrentMesuerment;
+	
+	
+	public ingerdents(String ingderentName, int ingderntAmount, String ingderentMesuerment) {
+		
+		this.ingdrentAmount = ingderntAmount;
+		this.ingdrentName = ingderentName;
+		this.ingdrentMesuerment = ingderentMesuerment;
+	}
+	
+	public String getIngdrentName() {
+		
+		return this.ingdrentName;
+	}
+	
+	public int getIngderentAmount() {
+		
+		return this.ingdrentAmount;
+	}
+	
+	public String getIngderentMesuerment() {
+		
+		return this.ingdrentMesuerment;
+	}
+	
+	public void setIngdrentName() {
+		
+		
+	}
+	
+	public void setIngderentAmount() {
+		
+		
+	}
+	
+	public void setIngderentMesuerment() {
+		
+		
+	}
+	
+}
+
+
 
 
