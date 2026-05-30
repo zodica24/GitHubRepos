@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class CookBookAppV01 {
+class CookBookAppV01 {
 
 	/**
 	 * @param args
@@ -45,28 +45,50 @@ class CookBook {
 
 class Recpie {
 	
-	private String [] ingredents;
+	private ArrayList <Ingerdent> ingredents;
 	private String directions;
 	
-	public Recpie(String ingdrentList) {
+	
+	public Recpie( String directions) {
 		
-		// make a for loop to pull info from 2d arrayList 
-		
+		ingredents = new ArrayList <> ();
+		this.directions = directions;
 		
 	}
 	
-	
+	public String getDirections(){
+		return directions;
+	}
+	 
+	public Ingerdent getIngerdent( int ingerdentIndex) {
+		return ingredents.get(ingerdentIndex);
+		
+	}
 	
 }
 
-class ingerdents{
+/**
+ * this class makes an ingredient using the name, amount, and measurements provided 
+ * @param ingderentName
+ * @param ingderentAmount
+ * @param ingderentMesuerment
+ */
+class Ingerdent{
 	
 	private String ingdrentName; 
 	private int ingdrentAmount;
 	private String ingdrentMesuerment;
+	private String cutType;
 	
+	public Ingerdent(String ingderentName, int ingderntAmount, String ingderentMesuerment, String cutType) {
+		
+		this.ingdrentAmount = ingderntAmount;
+		this.ingdrentName = ingderentName;
+		this.ingdrentMesuerment = ingderentMesuerment;
+		this.cutType = cutType;
+	}
 	
-	public ingerdents(String ingderentName, int ingderntAmount, String ingderentMesuerment) {
+	public Ingerdent(String ingderentName, int ingderntAmount, String ingderentMesuerment) {
 		
 		this.ingdrentAmount = ingderntAmount;
 		this.ingdrentName = ingderentName;
@@ -88,20 +110,32 @@ class ingerdents{
 		return this.ingdrentMesuerment;
 	}
 	
-	public void setIngdrentName() {
-		
-		
-	}
-	
-	public void setIngderentAmount() {
-		
+	public void setIngdrentName(String ingderentName ) {
+		this.ingdrentName = ingderentName;
 		
 	}
 	
-	public void setIngderentMesuerment() {
-		
+	public void setIngderentAmount(int ingderentAmount) {
+		this.ingdrentAmount = ingderentAmount;
 		
 	}
+	
+	public void setIngderentMesuerment(String ingderentMesuerment) {
+		this.ingdrentMesuerment = ingderentMesuerment;
+		
+	}
+	
+	public void setIngderentCutType(String cutType) {
+		this.cutType = cutType;
+	}
+	
+	public void printIngderent() {
+		
+		System.out.println( ingdrentAmount + " " + ingdrentMesuerment + " " + cutType + "" + ingdrentName );
+		
+	}
+	
+	
 	
 }
 
