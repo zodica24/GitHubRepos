@@ -31,28 +31,46 @@ class CookBookAppV01 {
 
 class CookBook {
 	
-	private int numberOfPages = 0;
+	private int numberOfPages  ;
 	private String bookName = "";
 	
 
 	public CookBook(String bookName) {
 		this.bookName = bookName;
 	}
-		
+	
+	
 		
 		
 	}
 
+/**
+ * this class creates a recipe that contains a list of ingredients and the directions for how to make the recipe 
+ * 
+ * @param String directions
+ * 
+ */
 class Recpie {
 	
+	private String recpieName;
 	private ArrayList <Ingerdent> ingredents;
 	private String directions;
 	
 	
-	public Recpie( String directions) {
+	public Recpie( String directions, String recpieName) {
 		
 		ingredents = new ArrayList <> ();
 		this.directions = directions;
+		this.recpieName = recpieName;
+		
+	}
+	
+	public String getRecpieName() {
+		return recpieName;
+	}
+	
+	public void setRecpieName( String newRecpieName) {
+		recpieName = newRecpieName;
 		
 	}
 	
@@ -64,6 +82,32 @@ class Recpie {
 		return ingredents.get(ingerdentIndex);
 		
 	}
+	
+	public void setDerictions(String newDirections) {
+		
+		this.directions = newDirections;
+	}
+	
+	public void changeIngerdent(String ingerdentName, Ingerdent ingerdent ){
+		
+		
+		for (int i = 0; i < ingredents.size(); i++) {
+			
+			if (ingredents.get(i).getIngdrentName() == ingerdentName){
+				
+				ingredents.set(i, ingerdent);
+				
+			}
+		}
+	
+	}
+	
+	public void addIngerdent(Ingerdent ingerdent) {
+		
+		ingredents.add(ingerdent);
+	}
+	
+	
 	
 }
 
@@ -128,6 +172,8 @@ class Ingerdent{
 	public void setIngderentCutType(String cutType) {
 		this.cutType = cutType;
 	}
+	
+	
 	
 	public void printIngderent() {
 		
