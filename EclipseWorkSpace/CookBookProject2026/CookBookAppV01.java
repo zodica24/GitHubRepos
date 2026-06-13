@@ -31,7 +31,8 @@ class CookBookAppV01 {
 
 class CookBook {
 	
-	private int numberOfPages  ;
+	private ArrayList <Recpie> recipes;
+	private int numberOfPages = recipes.size();
 	private String bookName = "";
 	
 
@@ -39,15 +40,40 @@ class CookBook {
 		this.bookName = bookName;
 	}
 	
+	public void setBookName( String newBookName) {
+		bookName = newBookName;
+	}
 	
+	public String getBookName() {
+		return bookName;
+	}
+	
+	public Recpie getRecipe(String recpieName) {
 		
+		Recpie myRecpie =  recipes.get(0);
+		
+		for(int i = 0; i < recipes.size(); i++) {
+			
+			if (recipes.get(i).getRecpieName() == recpieName) {
+				
+				myRecpie = recipes.get(i);
+			}
+		}
+		return myRecpie;
+	}
+		
+	
+	
+	
 		
 	}
 
 /**
- * this class creates a recipe that contains a list of ingredients and the directions for how to make the recipe 
+ * this class creates a recipe that contains the recipe name, a list of ingredients,
+ * and the directions for how to make the recipe 
  * 
  * @param String directions
+ * @param string recipe name
  * 
  */
 class Recpie {
@@ -78,8 +104,19 @@ class Recpie {
 		return directions;
 	}
 	 
-	public Ingerdent getIngerdent( int ingerdentIndex) {
-		return ingredents.get(ingerdentIndex);
+	public Ingerdent getIngerdent( String ingredentName) {
+		
+		Ingerdent myIngerdent = ingredents.get(0);
+		
+		for(int i = 1; i < ingredents.size(); i++) {
+			
+			if (ingredents.get(i).getIngdrentName() == ingredentName) {
+				
+				myIngerdent = ingredents.get(i);
+			}
+		}
+		
+		return myIngerdent;
 		
 	}
 	
