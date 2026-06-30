@@ -17,17 +17,109 @@ class CookBookAppV01 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
-		
-		
-		//make method to add user input to a 2d arrayList
-		
-		
-		
-		
-	}	
+		Scanner input = new Scanner(System.in);
+		int choice;
+		do {
+			System.out.print("1: make new cookbook");
+			System.out.print("2: add recpie to a cookbook");
+			System.out.print("3: edit a Recpie");
+			System.out.print("4: deleat a recpie");
+			System.out.print("5: delete a cookbook");
+			
+			choice =  (int) input.next().charAt(0);
+			
+			switch(choice) {
+				
+			case 1:
+				System.out.println("please name your new cookbook");
+				String bookName = input.next();
+				
+				CookBook newBook = new CookBook(bookName);
+				
+			case 2:
+				newBook.addrecpie();
+				//work on adding a recpie to cook book
+				
+				
+				
+			}
+		} while(choice != 6);
+			
+
+	}
 	
-}
+	public static void addRecpieToBook( CookBook bookName, Scanner input) {
+		
+		ArrayList <Ingerdent> ingerdents = new ArrayList<Ingerdent>();
+		
+		System.out.println("what is the name of the recpie:");
+		String recpieName = input.next();
+		System.out.println("would you like to add ingerdents Y/N:");
+		char answer = (char) Character.toUpperCase(input.next().charAt(0));
+		if (answer == 'Y') {
+			ingerdents = addIngderentsToRecpie(input);
+		}
+		System.out.println("what are the deriction");
+		String directions = input.nextLine();
+		
+		if (answer == 'Y') {
+			Recpie newRecpie = new Recpie(directions, recpieName, ingerdents);
+			
+		}
+		else {
+			Recpie newRecpie = new Recpie(directions, recpieName);
+		}
+		
+		
+	}
+		
+	public static ArrayList<Ingerdent> addIngderentsToRecpie(Scanner input) {
+		
+		boolean track = true;
+		ArrayList <Ingerdent> ingerdents = new ArrayList <Ingerdent>();
+		
+		do {
+			
+			System.out.println("what is the ingerdents name");
+			String name = input.next();
+			System.out.println("what is the amount of the ingerdent");
+			double amount = input.nextDouble();
+			System.out.println("what is the mesuerment of the ingerdent");
+			String mesurment = input.next();
+			System.out.println("what is the cut of the ingerdent/n Enter na if none");
+			String cut = input.next();
+			
+			if (cut == "na") {
+				Ingerdent newIngerdent = new Ingerdent(name, amount, mesurment);
+				
+				ingerdents.add(newIngerdent);
+				
+			}
+			else {
+				Ingerdent newIngerdent = new Ingerdent(name, amount, mesurment, cut);
+				
+				ingerdents.add(newIngerdent);
+				
+			}
+			
+			System.out.println("is there another ingerdent");
+			char answer = (char) Character.toUpperCase(input.next().charAt(0));
+			
+			if(answer == 'N') {
+				track = true;
+			}
+			
+		}
+		while(!track);
+		
+		return ingerdents;
+	}
+	
+	
+	
+}	
+		
+			
 
 class CookBook {
 	
@@ -62,8 +154,16 @@ class CookBook {
 		return myRecpie;
 	}
 		
+	public int getPageCount() {
+		return numberOfPages;
+	}
 	
-	
+	public void addrecpie() {
+		
+		
+		
+		
+	}
 	
 		
 	}
@@ -89,6 +189,13 @@ class Recpie {
 		this.directions = directions;
 		this.recpieName = recpieName;
 		
+	}
+	
+	public Recpie(String directions, String recpieName, ArrayList <Ingerdent> ingredents) {
+		
+		this.ingredents = ingredents;
+		this.directions = directions;
+		this.recpieName = recpieName;
 	}
 	
 	public String getRecpieName() {
@@ -157,11 +264,11 @@ class Recpie {
 class Ingerdent{
 	
 	private String ingdrentName; 
-	private int ingdrentAmount;
+	private double ingdrentAmount;
 	private String ingdrentMesuerment;
 	private String cutType;
 	
-	public Ingerdent(String ingderentName, int ingderntAmount, String ingderentMesuerment, String cutType) {
+	public Ingerdent(String ingderentName, double ingderntAmount, String ingderentMesuerment, String cutType) {
 		
 		this.ingdrentAmount = ingderntAmount;
 		this.ingdrentName = ingderentName;
@@ -169,7 +276,7 @@ class Ingerdent{
 		this.cutType = cutType;
 	}
 	
-	public Ingerdent(String ingderentName, int ingderntAmount, String ingderentMesuerment) {
+	public Ingerdent(String ingderentName, double ingderntAmount, String ingderentMesuerment) {
 		
 		this.ingdrentAmount = ingderntAmount;
 		this.ingdrentName = ingderentName;
@@ -181,7 +288,7 @@ class Ingerdent{
 		return this.ingdrentName;
 	}
 	
-	public int getIngderentAmount() {
+	public double getIngderentAmount() {
 		
 		return this.ingdrentAmount;
 	}
@@ -196,7 +303,7 @@ class Ingerdent{
 		
 	}
 	
-	public void setIngderentAmount(int ingderentAmount) {
+	public void setIngderentAmount(double ingderentAmount) {
 		this.ingdrentAmount = ingderentAmount;
 		
 	}
