@@ -19,14 +19,16 @@ class CookBookAppV01 {
 
 		Scanner input = new Scanner(System.in);
 		int choice;
+		ArrayList <CookBook> cookBooks = new ArrayList <CookBook>();
+		
 		do {
-			System.out.print("1: make new cookbook");
-			System.out.print("2: add recpie to a cookbook");
-			System.out.print("3: edit a Recpie");
-			System.out.print("4: deleat a recpie");
-			System.out.print("5: delete a cookbook");
+			System.out.println("1: make new cookbook");
+			System.out.println("2: add recpie to a cookbook");
+			System.out.println("3: edit a Recpie");
+			System.out.println("4: deleat a recpie");
+			System.out.println("5: delete a cookbook");
 			
-			choice =  (int) input.next().charAt(0);
+			choice = input.nextInt();
 			
 			switch(choice) {
 				
@@ -35,20 +37,44 @@ class CookBookAppV01 {
 				String bookName = input.next();
 				
 				CookBook newBook = new CookBook(bookName);
+				cookBooks.add(newBook);
+				break;
 				
 			case 2:
-				newBook.addrecpie();
+				
+				int bookChoice;
+				if( cookBooks.isEmpty()) {
+					
+					System.out.println("no cookBooks exist plese make a book");
+					
+				}
+				else {
+					System.out.println("which book would you like to add the recpie to.");
+					displayBooks(cookBooks);
+					bookChoice = input.nextInt();
+					addRecpieToBook(cookBooks.get(bookChoice) ,input);
+				}
 				//work on adding a recpie to cook book
+				break;
 				
-				
-				
+	
 			}
 		} while(choice != 6);
 			
 
 	}
 	
-	public static void addRecpieToBook( CookBook bookName, Scanner input) {
+	
+	public static void displayBooks(ArrayList <CookBook> cookBooks) {
+		
+		for (int i = 0; i < cookBooks.size(); i++) {
+			
+			System.out.print(i + ":" + cookBooks.get(i).getBookName());
+		}
+		
+	}
+	
+	public static void addRecpieToBook( CookBook cookBook, Scanner input) {
 		
 		ArrayList <Ingerdent> ingerdents = new ArrayList<Ingerdent>();
 		
@@ -63,12 +89,14 @@ class CookBookAppV01 {
 		String directions = input.nextLine();
 		
 		if (answer == 'Y') {
-			Recpie newRecpie = new Recpie(directions, recpieName, ingerdents);
-			
+			Recpie recpie = new Recpie(directions, recpieName, ingerdents);
+			cookBook.addrecpie(recpie);
 		}
 		else {
-			Recpie newRecpie = new Recpie(directions, recpieName);
+			Recpie recpie = new Recpie(directions, recpieName);
+			cookBook.addrecpie(recpie);
 		}
+		
 		
 		
 	}
@@ -124,7 +152,7 @@ class CookBookAppV01 {
 class CookBook {
 	
 	private ArrayList <Recpie> recipes;
-	private int numberOfPages = recipes.size();
+	private int numberOfPages;
 	private String bookName = "";
 	
 
@@ -158,9 +186,9 @@ class CookBook {
 		return numberOfPages;
 	}
 	
-	public void addrecpie() {
+	public void addrecpie(Recpie recpie) {
 		
-		
+		recipes.add(recpie);
 		
 		
 	}
