@@ -85,6 +85,7 @@ class CookBookAppV01 {
 		if (answer == 'Y') {
 			ingerdents = addIngderentsToRecpie(input);
 		}
+		input.nextLine();
 		System.out.println("what are the deriction");
 		String directions = input.nextLine();
 		
@@ -157,10 +158,12 @@ class CookBook {
 	
 
 	public CookBook(String bookName) {
+		this.recipes = new ArrayList <Recpie>();
 		this.bookName = bookName;
 	}
 	
 	public void setBookName( String newBookName) {
+		this.recipes = new ArrayList <Recpie>();
 		bookName = newBookName;
 	}
 	
@@ -188,7 +191,7 @@ class CookBook {
 	
 	public void addrecpie(Recpie recpie) {
 		
-		recipes.add(recpie);
+		this.recipes.add(recpie);
 		
 		
 	}
